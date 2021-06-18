@@ -124,6 +124,7 @@ const uint16_t SBTUITunneledHostDefaultPort = 8667;
     
     __block id responseObject = nil;
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        [NSThread sleepForTimeInterval: 1.0];
         if (![response isKindOfClass:[NSHTTPURLResponse class]]) {
             NSAssert(NO, @"[SBTUITestTunnelHost] Failed to get http response for action %@", action);
         } else {
